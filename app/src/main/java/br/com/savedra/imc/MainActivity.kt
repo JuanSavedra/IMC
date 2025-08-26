@@ -27,9 +27,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import br.com.savedra.imc.ui.theme.IMCTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +61,9 @@ fun IMCScreen() {
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.fillMaxWidth().height(160.dp)
+                modifier = Modifier.fillMaxWidth()
+                    .height(160.dp)
+                    .background(colorResource(id = R.color.red_bg))
             ) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Image(
@@ -67,6 +72,13 @@ fun IMCScreen() {
                     modifier = Modifier.size(60.dp)
                         .clip(shape = CircleShape),
                     contentScale = ContentScale.Crop
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                Text(
+                    text = "IMC Calculator",
+                    color = colorResource(id = R.color.text_color),
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold
                 )
             }
             Column(
